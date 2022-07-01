@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import "./header.css";
-import logo from "../../assets/logo.png";
-import searchx from "../../assets/search.png";
+import "../../assets/css/header.css";
+import logo from "../../assets/images/logo.png";
+import searchx from "../../assets/images/search.png";
 import { useNavigate } from "react-router-dom";
 import { getSearched } from "../../api/crud";
 

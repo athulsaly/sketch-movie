@@ -1,6 +1,6 @@
 import React from "react";
-import "./trending.css";
-import bannerImage from "../../assets/banner.png";
+import "../../assets/css/trending.css";
+import bannerImage from "../../assets/images/banner.png";
 import Banner from "../../atoms/Banner";
 
 const Trending = () => {

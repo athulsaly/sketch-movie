@@ -62,6 +62,12 @@ body {
   color: white;
 }
 
+.MuiButtonBase-root.MuiPaginationItem-root.MuiPaginationItem-sizeMedium.MuiPaginationItem-text.MuiPaginationItem-circular.MuiPaginationItem-page.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root:hover{
+  background-color: grey;
+}
+
+
+
 /* Media Queries (Medium Devices) */
 @media screen and (max-width: 1024px) {
   .container {

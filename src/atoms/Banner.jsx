@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./banner.css";
-import star from "../assets/star.png";
-import play from "../assets/play.png";
+import "../assets/css/banner.css";
+import star from "../assets/images/star.png";
+import play from "../assets/images/play.png";
+import inf from "../assets/images/inf.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -36,8 +37,17 @@ const Banner = () => {
           return (
             <div key={id} className="banner">
               <img
-                src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
+                src={`${
+                  `https://image.tmdb.org/t/p/w500/${
+                    backdrop_path === null ? "" : backdrop_path
+                  }`
+                    ? `https://image.tmdb.org/t/p/w500/${backdrop_path}`
+                    : { inf }
+                }`}
                 alt="movie banner"
+                onError={(event) => {
+                  event.target.src = inf;
+                }}
               />
               <div className="banner__bottom">
                 <div className="banner__text">

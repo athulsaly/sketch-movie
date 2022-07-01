@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom"; //state-management
-import "./movies.css";
+import "../assets/css/movies.css";
 import axios from "axios";
 import Header from "../components/header/Header";
-import BackButton from "../assets/back.png";
+import BackButton from "../assets/images/back.png";
 
 const Movies = () => {
   const navigate = useNavigate();
   const [datax, setData] = useState([]);
   const { state } = useLocation();
   const { movie_id } = state;
-  console.log(movie_id);
+
+  //API call with movie_id
   useEffect(() => {
     axios
       .get(
