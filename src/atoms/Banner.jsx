@@ -5,22 +5,29 @@ import play from "../assets/play.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import Typography from "@mui/material/Typography";
+import Pagination from "@mui/material/Pagination";
+
 const Banner = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+  const [page, setPage] = useState(1);
 
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
   //calling api for popular movies
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=8c5825603819c6565d47f38f78f6d76d&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/popular?api_key=8c5825603819c6565d47f38f78f6d76d&language=en-US&page=${page.toString()}`
       )
 
       .then((data) => {
         setData(data.data.results);
+        setPage(data.data.page);
       });
-  }, []);
-
+  }, [page]);
 
   return (
     <>
@@ -37,20 +44,31 @@ const Banner = () => {
                   <p className="banner__title">{title}</p>
                   <div className="banner__rating">
                     <img src={star} alt="star" />
-                    <p>{vote_average/2} / 5</p>
+                    <p>{vote_average / 2} / 5</p>
                   </div>
                 </div>
                 <div className="banner__play-btn">
                   <img
                     src={play}
                     alt="Play button"
-                    onClick={() => navigate("/movies", { state: { movie_id: id } })}
+                    onClick={() =>
+                      navigate("/movies", { state: { movie_id: id } })
+                    }
                   />
                 </div>
               </div>
             </div>
           );
         })}
+      </div>
+      <div className="paging">
+        <Typography>Page: {page}</Typography>
+        <Pagination
+          count={50}
+          page={page}
+          onChange={(event, value) => handleChange(event, value)}
+        />
+        {/* Tried using total no. of pages from the api but getting error when being requested. */}
       </div>
     </>
   );
