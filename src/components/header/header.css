@@ -65,6 +65,9 @@ padding-bottom: 12px;
         justify-content: flex-start;
         align-items: flex-start;
         height: auto;
+        padding: 0;
+        margin:0;
+      
 
     }
 
@@ -73,6 +76,7 @@ padding-bottom: 12px;
         margin-top: 16px;
         width: 112.39px;
         height: 27px;
+        margin-bottom: 10px;
     }
 
     .input {
@@ -81,9 +85,11 @@ padding-bottom: 12px;
         justify-content: flex;
         margin: 0;
         padding: 0;
+        margin-top: 12px;
     }
 
     .input input {
+        
         /* width: auto; */
         width: 230px;
         height: 32px;
